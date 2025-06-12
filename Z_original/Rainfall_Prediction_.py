@@ -887,11 +887,14 @@ def load_sample_data(filename='rainfall_data.csv'):
     Args:
         filename: Path to the CSV file
         
+
     Returns:
         DataFrame with rainfall data
     """
     try:
         # Load data from CSV
+        # data = pd.read_csv(filename)
+        filename = os.path.join(os.path.dirname(__file__), "rainfall_data.csv")
         data = pd.read_csv(filename)
         
         # Convert date column to datetime
@@ -933,6 +936,7 @@ def load_or_generate_rainfall_data(filename='rainfall_data.csv', years=5):
     # Check if file exists
     if os.path.exists(filename):
         # Load data from CSV
+        filename = os.path.join(os.path.dirname(__file__), "rainfall_data.csv")
         data = pd.read_csv(filename)
         # Convert date column to datetime
         if 'date' in data.columns:
